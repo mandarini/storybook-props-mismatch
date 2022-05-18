@@ -88,14 +88,12 @@
       }
     },
     "storybook": {
-      "executor": "@nrwl/storybook:storybook",
+      "executor": "@storybook/angular:start-storybook",
       "options": {
-        "uiFramework": "@storybook/angular",
         "port": 4400,
-        "config": {
-          "configFolder": "apps/ng-story-exec/.storybook"
-        },
-        "projectBuildConfig": "ng-story-exec"
+        "configDir": "apps/ng-story-exec/.storybook",
+        "browserTarget": "ng-story-exec:build",
+        "compodoc": false
       },
       "configurations": {
         "ci": {
@@ -103,16 +101,15 @@
         }
       }
     },
+
     "build-storybook": {
-      "executor": "@nrwl/storybook:build",
+      "executor": "@storybook/angular:build-storybook",
       "outputs": ["{options.outputPath}"],
       "options": {
-        "uiFramework": "@storybook/angular",
-        "outputPath": "dist/storybook/ng-story-exec",
-        "config": {
-          "configFolder": "apps/ng-story-exec/.storybook"
-        },
-        "projectBuildConfig": "ng-story-exec"
+        "outputDir": "dist/storybook/ng-story-exec",
+        "configDir": "apps/ng-story-exec/.storybook",
+        "browserTarget": "ng-story-exec:build",
+        "compodoc": false
       },
       "configurations": {
         "ci": {

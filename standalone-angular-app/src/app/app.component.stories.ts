@@ -15,4 +15,18 @@ const Template: Story<AppComponent> = (args: AppComponent) => ({
   props: args,
 });
 
+const argTypes = {
+  title: { control: 'text' },
+  rating: { control: 'number' },
+  flag: { defaultValue: false, control: { type: 'boolean' } },
+};
+
 export const Primary = Template.bind({});
+// Primary.args = {
+//   title: '',
+//   rating: 0,
+//   flag: false,
+// };
+Primary.argTypes = {
+  ...argTypes,
+};
