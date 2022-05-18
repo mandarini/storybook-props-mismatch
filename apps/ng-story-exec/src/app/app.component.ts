@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'storybook-props-mismatch-root',
@@ -6,5 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
-  title = 'ng-story-exec';
+  @Input() title: string;
+  @Input() rating: number;
+  @Input() flag: boolean;
 }
