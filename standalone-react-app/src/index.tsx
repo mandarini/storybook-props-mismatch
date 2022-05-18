@@ -9,7 +9,7 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
-    <App />
+    <App title="kat" rating={5} flag />
   </React.StrictMode>
 );
 
