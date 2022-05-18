@@ -7,6 +7,8 @@
     "ng-story-exec": "apps/ng-story-exec",
     "ng-story-exec-e2e": "apps/ng-story-exec-e2e",
     "re-nx-exec": "apps/re-nx-exec",
-    "re-nx-exec-e2e": "apps/re-nx-exec-e2e"
+    "re-nx-exec-e2e": "apps/re-nx-exec-e2e",
+    "re-nx-other": "apps/re-nx-other",
+    "re-nx-other-e2e": "apps/re-nx-other-e2e"
   }
 }
