@@ -1,0 +1,92 @@
+{
+  "projectType": "application",
+  "sourceRoot": "apps/ng-native/src",
+  "prefix": "storybook-props-mismatch",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/ng-native",
+        "index": "apps/ng-native/src/index.html",
+        "main": "apps/ng-native/src/main.ts",
+        "polyfills": "apps/ng-native/src/polyfills.ts",
+        "tsConfig": "apps/ng-native/tsconfig.app.json",
+        "assets": [
+          "apps/ng-native/src/favicon.ico",
+          "apps/ng-native/src/assets"
+        ],
+        "styles": ["apps/ng-native/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/ng-native/src/environments/environment.ts",
+              "with": "apps/ng-native/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "ng-native:build:production"
+        },
+        "development": {
+          "browserTarget": "ng-native:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "ng-native:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/ng-native/**/*.ts",
+          "apps/ng-native/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/ng-native"],
+      "options": {
+        "jestConfig": "apps/ng-native/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

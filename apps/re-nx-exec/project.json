@@ -1,0 +1,83 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/re-nx-exec/src",
+  "projectType": "application",
+  "targets": {
+    "build": {
+      "executor": "@nrwl/web:webpack",
+      "outputs": ["{options.outputPath}"],
+      "defaultConfiguration": "production",
+      "options": {
+        "compiler": "babel",
+        "outputPath": "dist/apps/re-nx-exec",
+        "index": "apps/re-nx-exec/src/index.html",
+        "baseHref": "/",
+        "main": "apps/re-nx-exec/src/main.tsx",
+        "polyfills": "apps/re-nx-exec/src/polyfills.ts",
+        "tsConfig": "apps/re-nx-exec/tsconfig.app.json",
+        "assets": [
+          "apps/re-nx-exec/src/favicon.ico",
+          "apps/re-nx-exec/src/assets"
+        ],
+        "styles": ["apps/re-nx-exec/src/styles.css"],
+        "scripts": [],
+        "webpackConfig": "@nrwl/react/plugins/webpack"
+      },
+      "configurations": {
+        "development": {
+          "extractLicenses": false,
+          "optimization": false,
+          "sourceMap": true,
+          "vendorChunk": true
+        },
+        "production": {
+          "fileReplacements": [
+            {
+              "replace": "apps/re-nx-exec/src/environments/environment.ts",
+              "with": "apps/re-nx-exec/src/environments/environment.prod.ts"
+            }
+          ],
+          "optimization": true,
+          "outputHashing": "all",
+          "sourceMap": false,
+          "namedChunks": false,
+          "extractLicenses": true,
+          "vendorChunk": false
+        }
+      }
+    },
+    "serve": {
+      "executor": "@nrwl/web:dev-server",
+      "defaultConfiguration": "development",
+      "options": {
+        "buildTarget": "re-nx-exec:build",
+        "hmr": true
+      },
+      "configurations": {
+        "development": {
+          "buildTarget": "re-nx-exec:build:development"
+        },
+        "production": {
+          "buildTarget": "re-nx-exec:build:production",
+          "hmr": false
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/re-nx-exec/**/*.{ts,tsx,js,jsx}"]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/re-nx-exec"],
+      "options": {
+        "jestConfig": "apps/re-nx-exec/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}

@@ -1,0 +1,28 @@
+{
+  "$schema": "../../node_modules/nx/schemas/project-schema.json",
+  "sourceRoot": "apps/re-nx-exec-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/re-nx-exec-e2e/cypress.json",
+        "devServerTarget": "re-nx-exec:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "re-nx-exec:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/re-nx-exec-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["re-nx-exec"]
+}
