@@ -2,17 +2,11 @@
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
   "projects": {
-    "ng-native": "apps/ng-native",
-    "ng-native-e2e": "apps/ng-native-e2e",
     "ng-nx-exec": "apps/ng-nx-exec",
     "ng-nx-exec-e2e": "apps/ng-nx-exec-e2e",
     "ng-story-exec": "apps/ng-story-exec",
     "ng-story-exec-e2e": "apps/ng-story-exec-e2e",
-    "re-native": "apps/re-native",
-    "re-native-e2e": "apps/re-native-e2e",
     "re-nx-exec": "apps/re-nx-exec",
-    "re-nx-exec-e2e": "apps/re-nx-exec-e2e",
-    "re-story-exec": "apps/re-story-exec",
-    "re-story-exec-e2e": "apps/re-story-exec-e2e"
+    "re-nx-exec-e2e": "apps/re-nx-exec-e2e"
   }
 }

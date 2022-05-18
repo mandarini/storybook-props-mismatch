@@ -16,8 +16,3 @@ const Template: Story<AppComponent> = (args: AppComponent) => ({
 });
 
 export const Primary = Template.bind({});
-Primary.args = {
-  title: '',
-  rating: 0,
-  flag: false,
-};
