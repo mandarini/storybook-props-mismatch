@@ -1,5 +1,8 @@
 {
   "$schema": "./node_modules/nx/schemas/workspace-schema.json",
   "version": 2,
-  "projects": {}
+  "projects": {
+    "ng-nx-exec": "apps/ng-nx-exec",
+    "ng-nx-exec-e2e": "apps/ng-nx-exec-e2e"
+  }
 }

@@ -1,0 +1,92 @@
+{
+  "projectType": "application",
+  "sourceRoot": "apps/ng-nx-exec/src",
+  "prefix": "storybook-props-mismatch",
+  "targets": {
+    "build": {
+      "executor": "@angular-devkit/build-angular:browser",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "outputPath": "dist/apps/ng-nx-exec",
+        "index": "apps/ng-nx-exec/src/index.html",
+        "main": "apps/ng-nx-exec/src/main.ts",
+        "polyfills": "apps/ng-nx-exec/src/polyfills.ts",
+        "tsConfig": "apps/ng-nx-exec/tsconfig.app.json",
+        "assets": [
+          "apps/ng-nx-exec/src/favicon.ico",
+          "apps/ng-nx-exec/src/assets"
+        ],
+        "styles": ["apps/ng-nx-exec/src/styles.css"],
+        "scripts": []
+      },
+      "configurations": {
+        "production": {
+          "budgets": [
+            {
+              "type": "initial",
+              "maximumWarning": "500kb",
+              "maximumError": "1mb"
+            },
+            {
+              "type": "anyComponentStyle",
+              "maximumWarning": "2kb",
+              "maximumError": "4kb"
+            }
+          ],
+          "fileReplacements": [
+            {
+              "replace": "apps/ng-nx-exec/src/environments/environment.ts",
+              "with": "apps/ng-nx-exec/src/environments/environment.prod.ts"
+            }
+          ],
+          "outputHashing": "all"
+        },
+        "development": {
+          "buildOptimizer": false,
+          "optimization": false,
+          "vendorChunk": true,
+          "extractLicenses": false,
+          "sourceMap": true,
+          "namedChunks": true
+        }
+      },
+      "defaultConfiguration": "production"
+    },
+    "serve": {
+      "executor": "@angular-devkit/build-angular:dev-server",
+      "configurations": {
+        "production": {
+          "browserTarget": "ng-nx-exec:build:production"
+        },
+        "development": {
+          "browserTarget": "ng-nx-exec:build:development"
+        }
+      },
+      "defaultConfiguration": "development"
+    },
+    "extract-i18n": {
+      "executor": "@angular-devkit/build-angular:extract-i18n",
+      "options": {
+        "browserTarget": "ng-nx-exec:build"
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "options": {
+        "lintFilePatterns": [
+          "apps/ng-nx-exec/**/*.ts",
+          "apps/ng-nx-exec/**/*.html"
+        ]
+      }
+    },
+    "test": {
+      "executor": "@nrwl/jest:jest",
+      "outputs": ["coverage/apps/ng-nx-exec"],
+      "options": {
+        "jestConfig": "apps/ng-nx-exec/jest.config.ts",
+        "passWithNoTests": true
+      }
+    }
+  },
+  "tags": []
+}
