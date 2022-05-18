@@ -9,8 +9,3 @@ export default {
 const Template: Story<AppProps> = (args) => <App {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {
-  title: '',
-  rating: 0,
-  flag: false,
-};
